@@ -1,0 +1,1200 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>HTTP/HTML/Cloud</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reset.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/theme/simple.css" id="theme">
+		<link rel="stylesheet" href="https://cs61a.org/assets/css/mono-blue.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata|Roboto:300,400,500|Work+Sans:400,700">
+		<style>
+			.reveal {
+				font-family: "Work Sans", sans-serif;
+			}
+
+			.reveal .slides section {
+				text-align: left;
+				font-size: smaller;
+			}
+
+			.reveal pre {
+				background-color: #f5f5f5;
+				width: 100%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-shadow: none;
+			}
+
+			.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+				font-family: "Roboto", sans-serif;
+				color: #0072c1;
+			}
+
+			.reveal section.heading-only {
+				text-align:center;
+				padding-top:20%;
+			}
+
+            .column .no-code-badge .code-badge {
+                display: none;
+            }
+
+            .code-badge-language {
+                display: none;
+            }
+
+			.python-tutor-link {
+				font-size: smaller;
+			}
+
+			.python-tutor-link:before {
+				content: "";
+				display: block;
+				background: url("http://pythontutor.com/favicon.ico") no-repeat;
+				width: 48px;
+				height: 48px;
+				float: left;
+				margin: 0 6px 0 0;
+			}
+
+			.reveal h3 {
+				margin-bottom: 40px;
+			}
+
+            .smaller {
+                font-size: smaller;
+            }
+
+            code {
+                padding: 2px 4px;
+                font-size: 90%;
+                color: #0072c1;
+                background-color: #f9f2f4;
+                border-radius: 4px;
+            }
+
+            p.padded {
+                margin-top: 32px;
+            }
+
+            section .row {
+                display: flex;
+            }
+
+            section .column {
+                flex: 48%;
+                margin: 10px;
+            }
+
+			@media print
+			{
+				.no-print, .no-print *
+				{
+					display: none !important;
+				}
+			}
+		</style>
+	</head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="heading-only" style="padding-top:5%">
+          <h1>HTML, HTTP, Cloud</h1>
+          <div class="no-print" style="text-align: left; margin-top: 100px; font-size: 70%;">
+	   Tips for navigating the slides:
+           <ul>
+	    <li>Press O or Escape for overview mode.</li>
+            <li>Visit <a href="?print-pdf" target="_blank">this link</a> for a nice printable version</li>
+            <li>Press the copy icon on the upper right of code blocks to copy the code</li>
+	   </ul>
+          </div>
+	</section>
+
+        <section>
+          <h3>Today's topics</h3>
+          <ul>
+            <li>HTML+CSS
+            <li>HTTP
+            <li>Cloud hosting
+          </ul>
+        </section>
+
+        <section class="heading-only">
+          <h2>HTML & CSS</h2>
+        </section>
+
+        <section>
+          <h3>Making a webpage</h3>
+          <p>Let's write and publish a webpage from scratch!</p>
+
+          <br>
+          <br>
+          <p><a target="_blank" href="https://www.khanacademy.org/computing/computer-programming/html-css/web-development-tools/a/hosting-your-website-on-github">Hosting your website on Github</a></p>
+          <aside class="speaker-notes">
+https://www.khanacademy.org/computer-programming/khan-academy-html-css/4607374592933888
+Github pages demo
+          </aside>
+        </section>
+
+        <section>
+          <h3>HTML is semantic!</h3>
+          <p>Non-semantic tags were deprecated! 🤢</p>
+          <pre style="font-size:1.0em"><code data-trim data-noescape class="html">
+          &lt;b&gt; &lt;i&gt; &lt;font&gt;
+          </code></pre>
+          <p>New semantic tags were added! 😍</p>
+          <pre style="font-size:1.0em"><code data-trim data-noescape class="html">
+          &lt;header&gt; &lt;nav&gt; &lt;article&gt;
+          &lt;section&gt; &lt;main&gt; &lt;footer&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HTML doesn't need plugins!</h3>
+
+          <p>Who needs YouTube when you have...</p>
+          <pre style="font-size:0.8em"><code data-trim data-noescape class="html">
+          &lt;audio src="o_tannenbaum.ogg" controls="true" preload="true"&gt;
+          &lt;/audio&gt;
+          </code></pre>
+          <audio src="https://upload.wikimedia.org/wikipedia/commons/a/a0/%22O_Tannenbaum%22.ogg"
+                    controls="true" preload="true">
+          </audio>
+
+          <pre style="font-size:0.8em"><code data-trim data-noescape class="html">
+          &lt;video src="bunny_trailer.webm" controls width="390"&gt;
+          &lt;/video&gt;
+          </code></pre>
+          <video src="https://dl8.webmfiles.org/big-buck-bunny_trailer.webm"
+                    controls width="390">
+          </video>
+        </section>
+
+        <section class="heading-only">
+          <h2>CSS Effects</h2>
+          <style>
+            .fake-pre {
+              font-family:monospace;
+              background: #eee;
+              padding: 10px;
+              font-size: 0.5em;
+              white-space: pre-wrap;
+            }
+          </style>
+        </section>
+
+        <section id="rounded-corners">
+          <style>
+          #doraemon {
+            height: 320px;
+          }
+          </style>
+          <style>
+            #doraemon{
+              padding-top: 10px;
+              margin: auto;
+            }
+
+            #face{
+                position:relative;
+                width:310px;
+                height:300px;
+                background:#07beea;
+                border:#333 2px solid;
+                margin: auto;
+            }
+
+            #base{
+                position:relative;
+                top:-5px;
+            }
+
+            #base_white{
+                position:absolute;
+                border:#000 2px solid;
+                width:264px;
+                height:196px;
+                background:#FFF;
+                z-index:1;
+                top:85px;
+                left:22px;
+            }
+
+            #eyes{
+                position:relative;
+                top:-5px;
+            }
+
+            div.eye{
+                position:absolute;
+                border:2px solid #000;
+                width:72px;
+                height:83px;
+                z-index:20;
+                background:#fff;
+            }
+
+            div.black_eye{
+                position:absolute;
+                width:15px;
+                height:15px;
+                background:#333;
+                z-index:21;
+            }
+
+            div.black_left{
+                top:100px;
+                left:130px;
+            }
+
+            div.black_right{
+                top:100px;
+                left:170px;
+            }
+
+            div.eye_left{
+                top:45px;
+                left:82px;
+            }
+
+            div.eye_right{
+                top:45px;
+                left:156px;
+            }
+
+            #nose{
+                width:32px;
+                height:32px;
+                border:2px solid #000;
+                background:#c93e00;
+                position:absolute;
+                top:117px;
+                left:139px;
+                z-index:30;
+            }
+
+            #nose_light{
+                width:10px;
+                height:10px;
+                border-radius:5px;
+                position:relative;
+                top:0px;
+                left:0px;
+            }
+
+            #nose_line{
+                background:#000;
+                width:4px;
+                height:100px;
+                top:125px;
+                left:156px;
+                position:absolute;
+            }
+
+            #nose_line{
+                background:#333;
+                width:3px;
+                height:100px;
+                top:140px;
+                left:155px;
+                position:absolute;
+                z-index:20;
+            }
+
+
+            .whiskers{
+                background:#333;
+                height:2px;
+                width:60px;
+                position:absolute;
+                z-index:20;
+            }
+            .whi_right{
+                top:165px;
+                left:210px;
+            }
+
+            .whi_right_top{
+                top:145px;
+                left:210px;
+            }
+
+            .whi_right_bottom{
+                top:185px;
+                left:210px;
+            }
+
+            .whi_left{
+                top:165px;
+                left:50px;
+            }
+            .whi_left_top{
+                top:145px;
+                left:50px;
+            }
+
+            .whi_left_bottom{
+                top:185px;
+                left:50px;
+            }
+            </style>
+            <h3>Rounded corners</h3>
+            <div class="fake-pre">
+face: <b>border-radius</b>: <span id="face-rounded-border-value">0</span>px; <input id="face-rounded-border" type="range" min="0" max="146" value="0" onchange="handleCorner(event)">
+left eye: <b>border-radius</b>: <span id="lefteye-rounded-border-value">0</span>px; <input id="lefteye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+right eye: <b>border-radius</b>: <span id="righteye-rounded-border-value">0</span>px; <input id="righteye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+base white: <b>border-radius</b>: <span id="base_white-rounded-border-value">0</span>px; <input id="base_white-rounded-border" type="range" min="0" max="150" value="0" onchange="handleCorner(event)">
+nose: <b>border-radius</b>: <span id="nose-rounded-border-value">0</span>px; <input id="nose-rounded-border" type="range" min="0" max="50" value="0" onchange="handleCorner(event)">
+left black eye: <b>border-radius</b>: <span id="leftblackeye-rounded-border-value">0</span>px; <input id="leftblackeye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+right black eye: <b>border-radius</b>: <span id="rightblackeye-rounded-border-value">0</span>px; <input id="rightblackeye-rounded-border" type="range" min="0" max="35" value="0" onchange="handleCorner(event)">
+            </div>
+              <div id="doraemon" class="example">
+                <div id="face" style="border-radius: 76px;">
+                    <div id="eyes">
+                        <div id="lefteye" class="eye eye_left" style="border-radius: 9px;"></div>
+                        <div id="leftblackeye" class="black_eye black_left" style="border-radius: 0px;"></div>
+
+                        <div id="righteye" class="eye eye_right" style="border-radius: 12px;"></div>
+                        <div id="rightblackeye" class="black_eye black_right" style="border-radius: 0px;"></div>
+                    </div>
+                    <div id="base">
+                        <div id="base_white" style="border-radius: 50px;"></div>
+                        <div id="nose" style="border-radius: 0px;">
+                            <div id="nose_light"></div>
+                        </div>
+                        <div id="nose_line"></div>
+
+                        <div class="whiskers whi_right_top rotate160"></div>
+                        <div class="whiskers whi_right"></div>
+                        <div class="whiskers whi_right_bottom rotate20"></div>
+
+                        <div class="whiskers whi_left_top rotate20"></div>
+                        <div class="whiskers whi_left"></div>
+                        <div class="whiskers whi_left_bottom rotate160"></div>
+                    </div>
+                </div>
+            </div>
+            <a href="http://caniuse.com/#feat=border-radius" target="_blank" class="objectlink">
+              caniuse.com: border-radius
+            </a>
+            <script>
+              function handleCorner() {
+                console.log("handling corner")
+                const doraemon = document.getElementById('doraemon');
+                const elementIds = ["face", "lefteye", "righteye", "base_white", "nose", "leftblackeye", "rightblackeye"];
+                elementIds.forEach( (elementId) => {
+                    const borderVal = document.getElementById(elementId + '-rounded-border').value;
+                    document.getElementById(elementId + '-rounded-border-value').textContent = borderVal;
+                    const faceEl = doraemon.querySelector('#' + elementId);
+                    faceEl.style.borderRadius = borderVal + 'px';
+                });
+              }
+            </script>
+        </section>
+
+
+        <section id="css-opacity">
+          <style>
+              #opacity-body {
+                margin: 0 auto;
+                width: 700px;
+                height: 400px;
+                background: url("https://d33wubrfki0l68.cloudfront.net/ac5c22b7f6afe4328d6c689f3e2d416030a1eb14/6f67d/css3-fx/images/hands.jpg");
+                border-radius: 8px;
+              }
+              #opacity-example {
+                font-size: 40px;
+                padding: 0.5rem;
+                text-align: center;
+                text-shadow: none;
+                top: 50px;
+                position: relative;
+              }
+          </style>
+          <h3>Opacity</h3>
+          <div class="fake-pre">color: <b>rgba</b>(255, 255, 255, <span id="opacity-color-value">1</span>); <input id="opacity-color" type="range" min="0" max="100" value="100" onchange="changeOpacity()"><br>
+background: <b>rgba</b>(0, 0, 0, <span id="opacity-background-value">0.5</span>); <input id="opacity-background" type="range" min="0" max="100" value="50" onchange="changeOpacity()"><br></div>
+          <br>
+          <div id="opacity-body">
+            <div id="opacity-example">
+              Independent opacity
+            </div>
+          </div>
+
+          <script defer>
+            function changeOpacity() {
+              var textOpacity = (document.getElementById('opacity-color').value / 100).toFixed(2);
+              var backgroundOpacity = (document.getElementById('opacity-background').value / 100).toFixed(2);
+
+              var el = document.getElementById('opacity-example');
+
+              el.style.color = 'rgba(255, 255, 255, ' + textOpacity + ')';
+              el.style.background = 'rgba(0, 0, 0, ' + backgroundOpacity + ')';
+
+              document.getElementById('opacity-color-value').textContent = textOpacity;
+              document.getElementById('opacity-background-value').textContent = backgroundOpacity;
+            }
+
+            changeOpacity();
+          </script>
+          <br>
+          <a href="http://caniuse.com/#search=rgba" target="_blank" class="objectlink">caniuse.com: rgba colors</a>
+        </section>
+
+        <section id="css-color">
+          <style>
+            #hsl-example {
+              font-size: 55px;
+              padding-top: 10px;
+              padding-right: 0px;
+              padding-bottom: 10px;
+              padding-left: 0px;
+              text-align: center;
+              color: rgb(21, 147, 38);
+            }
+            .hsl-value {
+              display: inline-block;
+              width: 50px;
+            }
+          </style>
+          <h3>Hue/saturation/luminance color</h3>
+
+          <div class="fake-pre">color: <b>hsla</b>(
+            <span class="hsl-value" id="hsl-h-value">128,</span> <input id="hsl-h" type="range" min="0" max="360" value="128" onchange="changeHSL()">
+            <span class="hsl-value" id="hsl-s-value">74%,</span> <input id="hsl-s" type="range" min="0" max="100" value="75" onchange="changeHSL()">
+            <span class="hsl-value" id="hsl-l-value">33%,</span> <input id="hsl-l" type="range" min="0" max="100" value="33" onchange="changeHSL()">
+            <span class="hsl-value" id="hsl-a-value">1.00</span> <input id="hsl-a" type="range" min="0" max="100" value="100" onchange="changeHSL()">
+          </div>
+
+          <div id="hsl-example" class="example">
+            HSL example
+          </div>
+          <br>
+          <a href="http://caniuse.com/#search=hsla" target="_blank" class="objectlink">caniuse.com: hsla colors</a>
+
+          <p><a target="_blank" href="http://hslpicker.com/">☞ Experiment more: HSL Color Picker</a></p>
+
+          <script defer>
+            function changeHSL() {
+              var h = document.getElementById('hsl-h').value * 1.0;
+              var s = document.getElementById('hsl-s').value * 1.0;
+              var l = document.getElementById('hsl-l').value * 1.0;
+              var a = (document.getElementById('hsl-a').value / 100).toFixed(2);
+              var el = document.getElementById('hsl-example');
+
+              el.style.color = 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')';
+
+              document.getElementById('hsl-h-value').textContent = h + ',';
+              document.getElementById('hsl-s-value').textContent = s + '%,';
+              document.getElementById('hsl-l-value').textContent = l + '%,';
+              document.getElementById('hsl-a-value').textContent = a + ');';
+            }
+
+            changeHSL();
+          </script>
+        </section>
+
+    <section id="css-gradients">
+      <style>
+        #gradients-linear-example {
+          border: 0;
+          height: 100px;
+          background: linear-gradient(to bottom, #f95a61, #ffffff 50%, #2a4758);
+        }
+        #css-gradients input[type=color]:valid {
+          border: 1px solid rgb(169, 169, 169);
+        }
+        #gradients-radial-example {
+          border: 0;
+          height: 100px;
+          background: -moz-radial-gradient(430px 50px, circle cover, red 0, #000 200px);
+          background: -webkit-gradient(radial, 430 50, 0, 430 50, 200, from(red), to(#000));
+        }
+      </style>
+      <h3>Gradients</h3>
+
+      <div class="fake-pre">background-image: <b>linear-gradient</b>(to bottom,
+        <span id="linear-color1-value" style="text-shadow: #000000 0 0 1px; color: #f95a61">#f95a61</span> 0%, <input id="linear-color1" type="color" value="#f95a61" onchange="changeLinear(event)">
+        <span style="text-shadow: #000000 0 0 1px; color: #ffffff">#ffffff</span> <span id="linear-percent-value">50</span>%, <input id="linear-percent" type="range" min="0" max="100" value="50" onchange="changeLinear(event)">
+        <span id="linear-color2-value" style="text-shadow: #000000 0 0 1px; color: #2a4758">#2a4758</span> 100%); <input id="linear-color2" type="color" value="#2a4758" onchange="changeLinear(event)">
+      </div>
+
+      <div id="gradients-linear-example" class="example"></div>
+
+      <script>
+        function changeLinear() {
+          var color1 = document.getElementById('linear-color1').value;
+          var percent = document.getElementById('linear-percent').value;
+          var color2 = document.getElementById('linear-color2').value;
+
+          document.getElementById('linear-color1-value').style.color = color1;
+          document.getElementById('linear-color1-value').textContent = color1;
+          document.getElementById('linear-percent-value').textContent = percent;
+          document.getElementById('linear-color2-value').style.color = color2;
+          document.getElementById('linear-color2-value').textContent = color2;
+
+          document.getElementById('gradients-linear-example').style.background = 'linear-gradient(to bottom, ' + color1 + ', #ffffff ' + percent + '%, ' + color2 + ')';
+        }
+      </script>
+      <br />
+      <div class="fake-pre">background-image: <b>radial-gradient</b>(center, circle cover, red, #000 <span id="gradients-radial-value">40</span>%);
+                                                              <input id="gradients-radial" type="range" min="1" max="100" value="40" onchange="changeGradients(event)">
+      </div>
+
+      <div id="gradients-radial-example" class="example"></div>
+      <br>
+      <p><a target="_blank" class="objectlink" href="http://caniuse.com/#search=gradients">caniuse.com: gradients</a></p>
+      <script defer>
+        function changeGradients() {
+          var size = document.getElementById('gradients-radial').value;
+
+          document.getElementById('gradients-radial-example').style.backgroundImage =
+              '-webkit-radial-gradient(center, circle cover, red, #000 ' + size + '%)';
+
+          document.getElementById('gradients-radial-value').textContent = size;
+        }
+      </script>
+      <p>More reading: <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient">MDN: linear-gradient</a></p>
+    </section>
+
+    <section id="css-shadow">
+      <style>
+        #shadow-example {
+          font-size: 75px;
+          margin: 10px 10px 30px 10px;
+          padding: 20px;
+          text-align: center;
+        }
+      </style>
+      <h3>Shadows</h3>
+      <div class="fake-pre two-column"><b>text-shadow</b>:
+        rgba(64, 64, 64, 0.5)
+        <span id="shadows-text-x-value">0</span>px <input id="shadows-text-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+        <span id="shadows-text-y-value">0</span>px <input id="shadows-text-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+        <span id="shadows-text-size-value">0</span>px; <input id="shadows-text-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
+      <br><b>box-shadow</b>:
+        rgba(0, 0, 128, 0.25)
+        <span id="shadows-box-x-value">0</span>px <input id="shadows-box-x" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+        <span id="shadows-box-y-value">0</span>px <input id="shadows-box-y" type="range" min="-9" max="9" value="0" onchange="changeShadow(event)">
+        <span id="shadows-box-size-value">0</span>px; <input id="shadows-box-size" type="range" min="0" max="9" value="0" onchange="changeShadow(event)">
+      </div>
+
+      <div id="shadow-example" class="example">
+        Such a shady div.
+      </div>
+      <br>
+      <a target="_blank" class="objectlink" href="http://caniuse.com/#search=shadow">caniuse.com: shadows</a>
+      <script defer>
+        function changeShadow() {
+          var el = document.getElementById('shadow-example');
+
+          var textXVal = document.getElementById('shadows-text-x').value;
+          var textYVal = document.getElementById('shadows-text-y').value;
+          var textSizeVal = document.getElementById('shadows-text-size').value;
+
+          document.getElementById('shadows-text-x-value').textContent = textXVal;
+          document.getElementById('shadows-text-y-value').textContent = textYVal;
+          document.getElementById('shadows-text-size-value').textContent = textSizeVal;
+
+          var boxXVal = document.getElementById('shadows-box-x').value;
+          var boxYVal = document.getElementById('shadows-box-y').value;
+          var boxSizeVal = document.getElementById('shadows-box-size').value;
+
+          document.getElementById('shadows-box-x-value').textContent = boxXVal;
+          document.getElementById('shadows-box-y-value').textContent = boxYVal;
+          document.getElementById('shadows-box-size-value').textContent = boxSizeVal;
+
+          el.style.textShadow = 'rgba(64, 64, 64, 0.5) ' + textXVal + 'px ' + textYVal + 'px ' + textSizeVal + 'px';
+          el.style.webkitBoxShadow = 'rgba(0, 0, 128, 0.25) ' + boxXVal + 'px ' + boxYVal + 'px ' + boxSizeVal + 'px';
+          el.style.MozBoxShadow = 'rgba(0, 0, 128, 0.25) ' + boxXVal + 'px ' + boxYVal + 'px ' + boxSizeVal + 'px';
+        }
+      </script>
+    </section>
+
+    <section id="filter">
+      <style>
+        #filter input {
+          width: 80px;
+        }
+        #filter pre {
+          float: left;
+          padding: 10px 20px;
+          margin-right: 10px;
+        }
+      </style>
+      <h3>filter</h3>
+      <div style="display: flex; flex-direction: row;">
+      <div class="fake-pre" >
+filter: <strong>contrast</strong>(<span id="filter-contrast-value">80</span>%); <input id="filter-contrast-slider" type="range" min="0" max="200" value="80" onchange="changeFilter()">
+filter: <strong>blur</strong>(<span id="filter-blur-value">5</span>px); <input id="filter-blur-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>sepia</strong>(<span id="filter-sepia-value">20</span>%); <input id="filter-sepia-slider" type="range" min="0" max="100" value="20" onchange="changeFilter()">
+filter: <strong>invert</strong>(<span id="filter-invert-value">0</span>%); <input id="filter-invert-slider" type="range" min="0" max="100" value="0" onchange="changeFilter()">
+filter: <strong>opacity</strong>(<span id="filter-opacity-value">50</span>%); <input id="filter-opacity-slider" type="range" min="0" max="100" value="50" onchange="changeFilter()">
+    </div>
+    <div  class="fake-pre">
+filter: <strong>hue-rotate</strong>(<span id="filter-huerotate-value">60</span>deg); <input id="filter-huerotate-slider" type="range" min="0" max="360" value="60" onchange="changeFilter()">
+filter: <strong>grayscale</strong>(<span id="filter-grayscale-value">10</span>%); <input id="filter-grayscale-slider" type="range" min="0" max="100" value="10" onchange="changeFilter()">
+filter: <strong>brightness</strong>(<span id="filter-brightness-value">120</span>%); <input id="filter-brightness-slider" type="range" min="0" max="200" value="120" onchange="changeFilter()">
+filter: <strong>drop-shadow</strong>(<span id="filter-dropshadow-value">5</span>px 5px black); <input id="filter-dropshadow-slider" type="range" min="0" max="20" value="5" onchange="changeFilter()">
+filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%); <input id="filter-saturate-slider" type="range" min="0" max="200" value="110" onchange="changeFilter()">
+    </div>
+    </div>
+
+    <img src="https://www.teaching-materials.org/css3-fx/images/sky_heart.jpg" id="filter-example">
+
+    <script>
+    function changeFilter() {
+      var grayscaleAmount = (document.getElementById('filter-grayscale-slider').value);
+      var sepiaAmount = (document.getElementById('filter-sepia-slider').value);
+      var saturateAmount = (document.getElementById('filter-saturate-slider').value);
+      var huerotateAmount = (document.getElementById('filter-huerotate-slider').value);
+      var invertAmount = (document.getElementById('filter-invert-slider').value);
+      var brightnessAmount = (document.getElementById('filter-brightness-slider').value);
+      var contrastAmount = (document.getElementById('filter-contrast-slider').value);
+      var blurAmount = (document.getElementById('filter-blur-slider').value);
+      var dropshadowAmount = (document.getElementById('filter-dropshadow-slider').value);
+      var opacityAmount = (document.getElementById('filter-opacity-slider').value);
+
+
+      var el = document.getElementById('filter-example');
+      el.style.filter = 'grayscale(' + grayscaleAmount + '%)' +
+                        'sepia(' + sepiaAmount + '%)' +
+                        'saturate(' + saturateAmount + '%)' +
+                        'hue-rotate(' + huerotateAmount + 'deg)' +
+                        'invert(' + invertAmount + '%)' +
+                        'brightness(' + brightnessAmount + '%)' +
+                        'contrast(' + contrastAmount + '%)' +
+                        'blur(' + blurAmount + 'px)' +
+                        'drop-shadow(' + dropshadowAmount + 'px 5px black)' +
+                        'opacity(' + opacityAmount + '%)'
+                        ;
+
+
+      document.getElementById('filter-grayscale-value').textContent = grayscaleAmount;
+      document.getElementById('filter-sepia-value').textContent = sepiaAmount;
+      document.getElementById('filter-saturate-value').textContent = saturateAmount;
+      document.getElementById('filter-huerotate-value').textContent = huerotateAmount;
+      document.getElementById('filter-invert-value').textContent = invertAmount;
+
+      document.getElementById('filter-brightness-value').textContent = brightnessAmount;
+      document.getElementById('filter-contrast-value').textContent = contrastAmount;
+      document.getElementById('filter-blur-value').textContent = blurAmount;
+      document.getElementById('filter-dropshadow-value').textContent = dropshadowAmount;
+      document.getElementById('filter-opacity-value').textContent = opacityAmount;
+    }
+
+    changeFilter();
+    </script>
+  </section>
+
+  <section id="web-fonts">
+    <style>
+    @font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url("https://d33wubrfki0l68.cloudfront.net/e3082065f56ea91fc72f71b8eb79a1f13fd3dbb2/a9452/css3-fx/fonts/leaguegothic/leaguegothic-webfont.eot");
+    src: local('?'), url("https://d33wubrfki0l68.cloudfront.net/dcdd5ff0580c65b0fe57e0904f4d74a009a32eb1/24bc7/css3-fx/fonts/leaguegothic/leaguegothic-webfont.woff") format('woff'), url("https://d33wubrfki0l68.cloudfront.net/a7fb44ec7de59e9568c59a7bf509dcd7da538fd2/df001/css3-fx/fonts/leaguegothic/leaguegothic-webfont.ttf") format('truetype'), url('/src/fonts/leaguegothic/leaguegothic-webfont.svg#webfontWgfhmMGx') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .special-header {
+    font-family: 'LeagueGothicRegular';
+    font-size: 60px;
+  }
+    </style>
+
+    <h3>Web fonts</h3>
+
+    <pre style="font-size:1.0em"><code data-trim data-noescape class="html">
+      @font-face {
+        font-family: 'LeagueGothicRegular';
+        src: url('fonts/leaguegothic/leaguegothic-webfont.eot');
+      }
+      .special-header {
+        font-family: 'LeagueGothicRegular', sans-serif;
+      }
+    </code></pre>
+
+      <div class="special-header">
+        <span>Look, I'm in League Gothic font!</span>
+      </div>
+
+      <a class="objectlink" target="_blank" href="http://hacks.mozilla.org/2009/06/beautiful-fonts-with-font-face/">How font-face works</a>
+      <br>
+      <p>Finding fonts:</p>
+      <ul style="column-count:2;">
+       <li><a target="_blank" href="http://www.google.com/webfonts/">Google Web Fonts</a>
+       <li><a target="_blank" href="https://chrome.google.com/webstore/detail/google-font-previewer-for/engndlnldodigdjamndkplafgmkkencc?hl=en">Font Previewer Chrome Extension</a>
+       <li><a target="_blank" href="http://www.typetester.org/">TypeTester</a>
+       <li><a target="_blank" href="http://typekit.com/">TypeKit</a>
+       <li><a target="_blank" href="http://webfonter.fontshop.com/">WebFonter</a>
+       <li><a target="_blank" href="https://fontlibrary.org/">Font Library</a></li>
+       <li><a target="_blank" href="http://www.goodwebfonts.com/">Good Web Fonts</a>
+       <li><a target="_blank" href="http://www.typotheque.com/fonts/">Typotheque</a>
+       <li><a target="_blank" href="https://justmytype.co/">Pairing fonts</a>
+       <li><a target="_blank" href="https://www.fontsquirrel.com/tools/webfont-generator">Webfont generator</a></li>
+      </ul>
+  </section>
+
+    <section class="heading-only">
+      <h2>CSS Animations</h2>
+    </section>
+
+    <section>
+      <h3>Keyframes</h3>
+      <p>Use <a href="https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp" target="_blank">CSS3 @keyframes</a> to define a custom CSS3 animation. Example:</p>
+      <pre style="font-size:0.7em"><code data-trim data-noescape class="html">
+        @<b>keyframes</b> <em>pulse</em> {
+
+          <b>from</b> {
+           opacity: 0.0;
+           font-size: 100%;
+          }
+
+          <b>to</b> {
+           opacity: 1.0;
+           font-size: 200%;
+          }
+
+        }</code></pre>
+
+        <a href="http://caniuse.com/#feat=css-animation" class="objectlink" target="_blank">
+          caniuse.com: animations
+        </a>
+  </section>
+
+  <section id="css-animation">
+    <style>
+      @keyframes pulse {
+       from {
+         opacity: 0.0;
+         font-size: 50px;
+       }
+       to {
+         opacity: 1.0;
+         font-size: 100px;
+       }
+      }
+
+      #animation-example {
+        animation-name: pulse;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in;
+        animation-direction: alternate;
+      }
+    </style>
+    <h3>Apply a CSS Animation</h3>
+      <p>Apply the CSS animation you defined to a specific HTML element.</p>
+      <pre style="font-size:0.7em"><code data-trim data-noescape class="html">
+      &lt;div&gt;Pulse!&lt;/div&gt;
+      </code></pre>
+      <pre style="font-size:0.7em"><code data-trim data-noescape class="css">
+      div {
+        <b>animation-name</b>: <em>pulse</em>;
+        <b>animation-duration</b>: 2s;
+        <b>animation-iteration-count</b>: infinite;
+        <b>animation-timing-function</b>: ease-in;
+        <b>animation-direction</b>: alternate;
+      }
+      </code></pre>
+
+      <div id="animation-example" class="example">
+        Pulse!
+      </div>
+
+    </section>
+
+    <section id="css-animation">
+      <style>
+          @keyframes rainbow {
+            0%   {background-color: red; width: 500px;}
+            25%  {background-color: yellow; width: 200px;}
+            50%  {background-color: blue; width: 300px;}
+            100% {background-color: green; width: 200px;}
+        }
+
+        #rainbow-animation-example {
+          animation-name: rainbow;
+          animation-duration: 6s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in;
+          animation-direction: alternate;
+        }
+      </style>
+      <h3>Multi-Step Animations</h3>
+      <pre style="font-size:0.3em"><code data-trim data-noescape class="css">
+      @<b>keyframes</b> <em>rainbow</em> {
+          0%   {
+            background-color: red;
+            width:500px;
+          }
+          25%  {
+            background-color: yellow;
+            width: 200px;
+          }
+          50%  {
+            background-color: blue;
+            width: 300px
+          }
+          100% {
+            background-color: green;
+            width: 200px;
+          }
+      }
+
+
+      div {
+        <b>animation-name</b>: <em>rainbow</em>;
+        <b>animation-duration</b>: 6s;
+        <b>animation-iteration-count</b>: infinite;
+        <b>animation-timing-function</b>: ease-in;
+        <b>animation-direction</b>: alternate;
+      }
+      </code></pre>
+
+      <div id="rainbow-animation-example" class="example">
+        Taste the rainbow!
+      </div>
+  </section>
+
+  <section id="css-transitions">
+    <style>
+    #transitions-box-2 {
+      transition: margin-left 1s ease-in-out;
+    }
+    .transitions .left {
+      margin-left: 0;
+    }
+    .transitions .right {
+      margin-left: 780px;
+    }
+    .transitions div {
+      width: 20px;
+      height: 20px;
+      background: red;
+    }
+    </style>
+    <h3>Transitions</h3>
+
+    <div class="transitions example">
+      <div id="transitions-box-1"></div>
+    </div>
+
+  <pre style="font-size:0.7em"><code data-trim data-noescape class="css">
+  #box.left {
+    margin-left: 0;
+  }
+
+  #box.right {
+    margin-left: 1000px;
+  }
+  </code></pre>
+  <ul style="font-size:0.5em;">
+    <li>Click <button onclick="transitionLeft(1)">Left</button> => <code>document.getElementById('box').className = 'left';</code></li>
+    <li>Click <button onclick="transitionRight(1)">Right</button> => <code>document.getElementById('box').className = 'right';</code></li>
+  </ul>
+
+  <div class="transitions example">
+    <div id="transitions-box-2"></div>
+  </div>
+
+  <pre style="font-size:0.7em"><code data-trim data-noescape class="css">
+    #box {
+    <b>transition</b>: margin-left 1s ease-in-out;
+  }
+  </code></pre>
+
+  <ul style="font-size:0.5em;">
+    <li>Click <button onclick="transitionLeft(2)">Left</button> => <code>document.getElementById('box').className = 'left';</code></li>
+    <li>Click <button onclick="transitionRight(2)">Right</button> => <code>document.getElementById('box').className = 'right';</code></li>
+  </ul>
+
+  <br><br>
+    <a href="http://caniuse.com/#feat=css-transitions" class="objectlink" target="_blank">
+      caniuse.com: css-transitions
+    </a>
+
+    <script defer>
+      function transitionLeft(no) {
+        document.getElementById('transitions-box-' + no).className = 'left';
+      }
+      function transitionRight(no) {
+        document.getElementById('transitions-box-' + no).className = 'right';
+      }
+    </script>
+  </section>
+
+
+  <section class="slide styling" id="css-transforms">
+    <style>
+      #transform-example {
+        margin: 50px 20px;
+        transform: rotateZ(5deg);
+        transition: transform 2s ease-in-out;
+      }
+
+      #transform-example:hover {
+        transform: rotateZ(-5deg);
+      }
+    </style>
+    <h3>Transforms</h3>
+      <pre id="transform-example">
+        You can transform this div by hovering over it!
+      </pre>
+
+  <pre style="font-size:0.7em"><code data-trim data-noescape class="css">
+  #transform-example {
+    <b>transform</b>: rotateZ(5deg);
+    <b>transition</b>: transform 2s ease-in-out;
+  }
+
+  #transform-example:hover {
+    <b>transform</b>: rotateZ(-5deg);
+  }
+  </code></pre>
+  <div style="font-size:0.5em;">
+  <p>Other transform values:</p>
+  <ul>
+    <li><em>translate</em> – translate element along X, Y, or Z axes (in deg, rad, turn, or %)</li>
+    <li><em>scale</em> – scale size of element along X or Y axes (in integers – e.g. 2.0 for 200% scale)</li>
+    <li><em>rotate</em> – rotate element along X, Y, or Z axes (in deg, rad, or turn)</li>
+    <li><em>skew</em> – skew element along X or Y axes (in deg or rad)</li>
+    <li><em>perspective</em> - set perspective from which element is viewed (in px)</li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">Additional Properties</a></li>
+  </ul>
+</div>
+<br>
+    <a href="http://caniuse.com/#feat=transforms2d" class="objectlink" target="_blank">
+      caniuse.com: transforms
+    </a>
+  </section>
+
+  <section id="animation-examples">
+    <h3>Animation Examples</h3>
+    <ul style="column-count: 2;">
+      <li><a target="_blank" href="http://jsbin.com/goyejegufa/edit?html,output">Doctor Who - Spinning Tardis</a> from <a target="_blank" href="http://joshnetherton.com/presentations/remix2012/slides.html#intro">2012 CSS3 talk</a>
+      <li><a target="_blank" href="https://codepen.io/ajerez/pen/EaEEOW">CSS3 Submarine</a>
+      <li><a target="_blank" href="http://codepen.io/donovanh/pen/pJzwEw">Star Wars: The Force Awakens</a></li>
+      <li><a target="_blank" href="http://codepen.io/waynedunkley/pen/YPJWaz">3D Solar System</a>
+    </ul>
+    <p data-height="408" data-theme-id="0" data-slug-hash="EaEEOW" data-default-tab="result" data-user="ajerez" data-embed-version="2" data-pen-title="Submarine with CSS" class="codepen">See the Pen <a href="https://codepen.io/ajerez/pen/EaEEOW">Submarine with CSS</a> by Alberto Jerez (<a href="http://codepen.io/ajerez">@ajerez</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  </section>
+
+  <section class="heading-only">
+    <h2>CSS Layout</h2>
+  </section>
+
+  <section>
+    <h3>CSS Flexbox</h3>
+    <style>
+      .staff-gallery  {
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      .staff-gallery div {
+          height: 150px;
+          flex-grow: 1;
+          position: relative;
+      }
+
+      .staff-gallery::after {
+          content:'';
+          display:block;
+          flex-grow: 10;
+      }
+
+      .staff-gallery img {
+          max-height: 100%;
+          min-width: 100%;
+          margin: 0;
+          object-fit: cover;
+          vertical-align: bottom;
+      }
+
+      .staff-gallery div p {
+          position:absolute;
+          bottom:0px;
+          left: 6px;
+          visibility:hidden;
+          font-size: 10px;
+          margin: 0px;
+          background: white;
+      }
+
+      .staff-gallery div:hover p {
+          visibility:visible;
+      }
+      </style>
+
+          <pre style="font-size:0.5em"><code data-trim data-noescape class="css">
+          .staff-gallery  {
+            display: flex;
+            flex-wrap: wrap;
+          }
+
+          .staff-gallery div {
+            height: 150px;
+            flex-grow: 1;
+          }
+          </code></pre>
+          <div class="staff-gallery">
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3c8c417b-076a-4cfe-8a4c-aa1f653dd4ff/pamelafox-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zYzhjNDE3Yi0wNzZhLTRjZmUtOGE0Yy1hYTFmNjUzZGQ0ZmYvcGFtZWxhZm94LTEuanBnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwNDAxODg4LCJleHAiOjE2MzA0ODgyODh9.P198AlOG0z7iw65ADlOVX-t6LtuoDRW4QvwYzOp0SW4SlguonpZhfh4fzvxFmvQ2EaDv8IxPzI1uxh1rEb4Rbg&download=1&content_type=image%2Fjpeg">
+              <p>Pamela Fox (she/her)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/c0f2ba4d-a7c6-4b1f-a6d3-63ee623d2a54/mball-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9jMGYyYmE0ZC1hN2M2LTRiMWYtYTZkMy02M2VlNjIzZDJhNTQvbWJhbGwtMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzAzOTY2NjcsImV4cCI6MTYzMDQ4MzA2N30.P1HHoE9v8qsHFUcLTthcnZGkHvpsFj3FxDQqExTZEjIlpEz4zBrswbMw7RuyJaq5HoIZWx3Hz7fWESk4n-XiYg&download=1&content_type=image%2Fjpeg">
+              <p>Michael Ball (he/him)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/b1c72fb2-49b9-43b6-b16c-b02634fce47d/_DSC4391-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9iMWM3MmZiMi00OWI5LTQzYjYtYjE2Yy1iMDI2MzRmY2U0N2QvX0RTQzQzOTEtMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzA0MTM0OTgsImV4cCI6MTYzMDQ5OTg5OH0.GN6QtTLETS13K5APG-K6CT8URsj55f5b86jodRlge8XNDYU2J5VqH_pkzx9RmgD5pm6RiEN047u3vuxo5-_DMQ&download=1&content_type=image%2Fjpeg">
+              <p>Rajavi Mishra (she/her)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3d7b9217-fae5-4730-9282-740a9a1c0509/samson-1.JPG?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zZDdiOTIxNy1mYWU1LTQ3MzAtOTI4Mi03NDBhOWExYzA1MDkvc2Ftc29uLTEuSlBHIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwNDE3ODAzLCJleHAiOjE2MzA1MDQyMDN9.3s5g2dAksOZlkp-Or7DaPMld3OUd4Lzb-L-wYt_BJh1Lo8dH_-11Hi4BpSYUThYw5ARz02lE-TNTJm4h9_9-gA&download=1&content_type=image%2Fjpeg" alt="Photo of Samson">
+              <p>Samson Petrosyan (he/him)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3196ba3e-3eb4-4e02-85c1-d56a98fab2b3/photo-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zMTk2YmEzZS0zZWI0LTRlMDItODVjMS1kNTZhOThmYWIyYjMvcGhvdG8tMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzA0MDU2NzgsImV4cCI6MTYzMDQ5MjA3OH0.IAOIPOvgxTjQgINxU4f7RI9SuzoxZmOYBVu-91u_joUnqIqqftB4hL-O87LawLBmRlGQ4WLUItLRax5eGJkEHw&download=1&content_type=image%2Fjpeg" alt="Photo of Gurpreet">
+              <p>Gurpreet Kaur Khalsa</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/dc6cd570-06c5-4c7a-a7d4-39e67e7d477c/profile_image-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9kYzZjZDU3MC0wNmM1LTRjN2EtYTdkNC0zOWU2N2U3ZDQ3N2MvcHJvZmlsZV9pbWFnZS0xLmpwZyIsInRlbmFudCI6ImNhbnZhcyIsInVzZXJfaWQiOiIxMDcyMDAwMDAwNTU5OTcxNyIsImlhdCI6MTYzMDQwNzU3MCwiZXhwIjoxNjMwNDkzOTcwfQ.Pl1hPZdgEiGgAGoMs_RxmEMn-V4fKIWpd4sbNn4su-0spNh0pt8N1gc3oeurZrDGK0RH9R7aUmMfBL0kVi85tg&download=1&content_type=image%2Fjpeg" alt="Photo of Jimmy">
+              <p>Jimmy Xu (he/him)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/a87a53b0-3a51-4b71-8863-75a14373462b/professional_pic.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9hODdhNTNiMC0zYTUxLTRiNzEtODg2My03NWExNDM3MzQ2MmIvcHJvZmVzc2lvbmFsX3BpYy5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzAzOTk4NTgsImV4cCI6MTYzMDQ4NjI1OH0.dKKvAU3cdIkhfWNrsNsXU8BMwVl1AN9IoEkA-SsldJLTJ8wcsPGBoBgsH-MIBSWyT_bl7M-LwCGgLtXOzzzqBw&download=1&content_type=image%2Fjpeg" alt="Photo of Abhinav">
+              <p>Abhinav Dhulipala (he/him)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/a9c86ef7-8c02-4466-9975-2fba04963090/169A%20Bio-1.png?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9hOWM4NmVmNy04YzAyLTQ0NjYtOTk3NS0yZmJhMDQ5NjMwOTAvMTY5QSUyMEJpby0xLnBuZyIsInRlbmFudCI6ImNhbnZhcyIsInVzZXJfaWQiOiIxMDcyMDAwMDAwNTU5OTcxNyIsImlhdCI6MTYzMDQxOTQ1MCwiZXhwIjoxNjMwNTA1ODUwfQ.PDhYUd-CCaM0KLFBX55EFFM3WzciyT_QOKcZLR3NuxU-TCHG1ralbEzqKi39d0nHcYRBfS_msgFwfDzcG3dRBA&download=1&content_type=image%2Fpng" alt="Photo of Amritansh">
+              <p>Amritansh Saraf</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/82ca75e7-9f6f-45a4-b16e-0ec8d777aed2/86037168-20D4-4B88-A22D-06EFB13FF15E-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii84MmNhNzVlNy05ZjZmLTQ1YTQtYjE2ZS0wZWM4ZDc3N2FlZDIvODYwMzcxNjgtMjBENC00Qjg4LUEyMkQtMDZFRkIxM0ZGMTVFLTEuanBnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwMzk0MTQ3LCJleHAiOjE2MzA0ODA1NDd9.3WKS7QUwfp7uHgtHkNDvHRDY7UB84u8Ho6jqtzG4ERvYhDicdF3ccplZzUgG8wPF3IqW57cgqoAjv0xrCJReXg&download=1&content_type=image%2Fjpeg" alt="Photo of Angela">
+              <p>Angela Jiang (she/her)</p>
+            </div>
+            <div>
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/1d7bef8d-a810-4ccc-b005-c8a2f6b38f2b/20181203_144241~4_Original-1.jpeg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8xZDdiZWY4ZC1hODEwLTRjY2MtYjAwNS1jOGEyZjZiMzhmMmIvMjAxODEyMDNfMTQ0MjQxfjRfT3JpZ2luYWwtMS5qcGVnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwMzk1ODA3LCJleHAiOjE2MzA0ODIyMDd9.StyKodLCH86Ab30P-hTdUMDAxFssuOkqfvx3VG1DYnwmcRf2i8weEd11WJ12XoPR1fWL0KvcyCMpdJwppTG4hQ&download=1&content_type=image%2Fjpeg" alt="Photo of Michael Chou">
+              <p>Michael (Mike) Chou (he/him)</p>
+            </div>
+          </div>
+          <br>
+          <p><a target="_blank" href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS Tricks: A Guide to Flexbox</a></p>
+        </section>
+
+        <section>
+          <h3>CSS Grid</h3>
+          <style>
+      .grid-gallery {
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-rows: repeat(2, 5vw);
+          grid-gap: 15px;
+      }
+
+      .grid-gallery img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+
+      .grid-gallery .img1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+
+      .grid-gallery .img2 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+          </style>
+          <pre style="font-size:0.3em"><code data-trim data-noescape class="css">
+          .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(2, 5vw);
+            grid-gap: 15px;
+          }
+
+          .grid-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .grid-gallery .img1 {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+          }
+
+          .grid-gallery .img2 {
+            grid-column: 3 / span 2;
+            grid-row: 1 / span 2;
+          }
+          </code></pre>
+
+          <div class="grid-gallery">
+              <img class="img1" src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3c8c417b-076a-4cfe-8a4c-aa1f653dd4ff/pamelafox-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zYzhjNDE3Yi0wNzZhLTRjZmUtOGE0Yy1hYTFmNjUzZGQ0ZmYvcGFtZWxhZm94LTEuanBnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwNDAxODg4LCJleHAiOjE2MzA0ODgyODh9.P198AlOG0z7iw65ADlOVX-t6LtuoDRW4QvwYzOp0SW4SlguonpZhfh4fzvxFmvQ2EaDv8IxPzI1uxh1rEb4Rbg&download=1&content_type=image%2Fjpeg" alt="Photo of Pamela">
+              <img class="img2" src="https://cdn.inst-fs-iad-prod.inscloudgate.net/c0f2ba4d-a7c6-4b1f-a6d3-63ee623d2a54/mball-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9jMGYyYmE0ZC1hN2M2LTRiMWYtYTZkMy02M2VlNjIzZDJhNTQvbWJhbGwtMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzAzOTY2NjcsImV4cCI6MTYzMDQ4MzA2N30.P1HHoE9v8qsHFUcLTthcnZGkHvpsFj3FxDQqExTZEjIlpEz4zBrswbMw7RuyJaq5HoIZWx3Hz7fWESk4n-XiYg&download=1&content_type=image%2Fjpeg" alt="Photo of Michael">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/b1c72fb2-49b9-43b6-b16c-b02634fce47d/_DSC4391-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9iMWM3MmZiMi00OWI5LTQzYjYtYjE2Yy1iMDI2MzRmY2U0N2QvX0RTQzQzOTEtMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzA0MTM0OTgsImV4cCI6MTYzMDQ5OTg5OH0.GN6QtTLETS13K5APG-K6CT8URsj55f5b86jodRlge8XNDYU2J5VqH_pkzx9RmgD5pm6RiEN047u3vuxo5-_DMQ&download=1&content_type=image%2Fjpeg" alt="Photo of Rajavi">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3d7b9217-fae5-4730-9282-740a9a1c0509/samson-1.JPG?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zZDdiOTIxNy1mYWU1LTQ3MzAtOTI4Mi03NDBhOWExYzA1MDkvc2Ftc29uLTEuSlBHIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwNDE3ODAzLCJleHAiOjE2MzA1MDQyMDN9.3s5g2dAksOZlkp-Or7DaPMld3OUd4Lzb-L-wYt_BJh1Lo8dH_-11Hi4BpSYUThYw5ARz02lE-TNTJm4h9_9-gA&download=1&content_type=image%2Fjpeg" alt="Photo of Samson">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/3196ba3e-3eb4-4e02-85c1-d56a98fab2b3/photo-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zMTk2YmEzZS0zZWI0LTRlMDItODVjMS1kNTZhOThmYWIyYjMvcGhvdG8tMS5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzA0MDU2NzgsImV4cCI6MTYzMDQ5MjA3OH0.IAOIPOvgxTjQgINxU4f7RI9SuzoxZmOYBVu-91u_joUnqIqqftB4hL-O87LawLBmRlGQ4WLUItLRax5eGJkEHw&download=1&content_type=image%2Fjpeg" alt="Photo of Gurpreet">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/dc6cd570-06c5-4c7a-a7d4-39e67e7d477c/profile_image-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9kYzZjZDU3MC0wNmM1LTRjN2EtYTdkNC0zOWU2N2U3ZDQ3N2MvcHJvZmlsZV9pbWFnZS0xLmpwZyIsInRlbmFudCI6ImNhbnZhcyIsInVzZXJfaWQiOiIxMDcyMDAwMDAwNTU5OTcxNyIsImlhdCI6MTYzMDQwNzU3MCwiZXhwIjoxNjMwNDkzOTcwfQ.Pl1hPZdgEiGgAGoMs_RxmEMn-V4fKIWpd4sbNn4su-0spNh0pt8N1gc3oeurZrDGK0RH9R7aUmMfBL0kVi85tg&download=1&content_type=image%2Fjpeg" alt="Photo of Jimmy">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/a87a53b0-3a51-4b71-8863-75a14373462b/professional_pic.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9hODdhNTNiMC0zYTUxLTRiNzEtODg2My03NWExNDM3MzQ2MmIvcHJvZmVzc2lvbmFsX3BpYy5qcGciLCJ0ZW5hbnQiOiJjYW52YXMiLCJ1c2VyX2lkIjoiMTA3MjAwMDAwMDU1OTk3MTciLCJpYXQiOjE2MzAzOTk4NTgsImV4cCI6MTYzMDQ4NjI1OH0.dKKvAU3cdIkhfWNrsNsXU8BMwVl1AN9IoEkA-SsldJLTJ8wcsPGBoBgsH-MIBSWyT_bl7M-LwCGgLtXOzzzqBw&download=1&content_type=image%2Fjpeg" alt="Photo of Abhinav">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/a9c86ef7-8c02-4466-9975-2fba04963090/169A%20Bio-1.png?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii9hOWM4NmVmNy04YzAyLTQ0NjYtOTk3NS0yZmJhMDQ5NjMwOTAvMTY5QSUyMEJpby0xLnBuZyIsInRlbmFudCI6ImNhbnZhcyIsInVzZXJfaWQiOiIxMDcyMDAwMDAwNTU5OTcxNyIsImlhdCI6MTYzMDQxOTQ1MCwiZXhwIjoxNjMwNTA1ODUwfQ.PDhYUd-CCaM0KLFBX55EFFM3WzciyT_QOKcZLR3NuxU-TCHG1ralbEzqKi39d0nHcYRBfS_msgFwfDzcG3dRBA&download=1&content_type=image%2Fpng" alt="Photo of Amritansh">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/82ca75e7-9f6f-45a4-b16e-0ec8d777aed2/86037168-20D4-4B88-A22D-06EFB13FF15E-1.jpg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii84MmNhNzVlNy05ZjZmLTQ1YTQtYjE2ZS0wZWM4ZDc3N2FlZDIvODYwMzcxNjgtMjBENC00Qjg4LUEyMkQtMDZFRkIxM0ZGMTVFLTEuanBnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwMzk0MTQ3LCJleHAiOjE2MzA0ODA1NDd9.3WKS7QUwfp7uHgtHkNDvHRDY7UB84u8Ho6jqtzG4ERvYhDicdF3ccplZzUgG8wPF3IqW57cgqoAjv0xrCJReXg&download=1&content_type=image%2Fjpeg" alt="Photo of Angela">
+              <img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/1d7bef8d-a810-4ccc-b005-c8a2f6b38f2b/20181203_144241~4_Original-1.jpeg?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8xZDdiZWY4ZC1hODEwLTRjY2MtYjAwNS1jOGEyZjZiMzhmMmIvMjAxODEyMDNfMTQ0MjQxfjRfT3JpZ2luYWwtMS5qcGVnIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6IjEwNzIwMDAwMDA1NTk5NzE3IiwiaWF0IjoxNjMwMzk1ODA3LCJleHAiOjE2MzA0ODIyMDd9.StyKodLCH86Ab30P-hTdUMDAxFssuOkqfvx3VG1DYnwmcRf2i8weEd11WJ12XoPR1fWL0KvcyCMpdJwppTG4hQ&download=1&content_type=image%2Fjpeg" alt="Photo of Michael Chou">
+          </div>
+          <p style="margin-top:40px;">
+          <a target="_blank" href="https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/">Create an image gallery with CSS grid</a><br>
+          <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks: A complete guide to Grid</a>
+          </p>
+        </section>
+
+</div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-badge@0.1.9/highlightjs-badge.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.5/js/jsplumb.min.js"></script>
+    <script>
+    const srcUrlPrefix = "https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/";
+    Reveal.initialize({
+	hash: true,
+	center: false,
+	slideNumber: true,
+	showNotes: false,
+	margin: 0.1,
+	preloadIframes: true,
+	plugins: [ RevealHighlight ],
+	pdfSeparateFragments: true
+    });
+
+    // add HighlightJS-badge (options are optional)
+    const options = {
+      copyIconContent: "📄",
+      checkIconContent: "✅"
+    };
+    window.highlightJsBadge(options);
+
+    if (window.location.search == "?print-pdf") {
+      const uncounted = document.querySelectorAll("[data-visibility='uncounted']");
+      uncounted.forEach(node => {
+        node.parentNode.classList.add("no-print")
+      })
+    }
+    </script>
+  </body>
+</html>
