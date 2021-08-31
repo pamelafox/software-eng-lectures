@@ -115,14 +115,15 @@
         <section>
           <h3>Today's topics</h3>
           <ul>
-            <li>HTML+CSS
+            <li>HTML
             <li>HTTP
             <li>Cloud hosting
+            <li>CSS
           </ul>
         </section>
 
         <section class="heading-only">
-          <h2>HTML & CSS</h2>
+          <h2>HTML</h2>
         </section>
 
         <section>
@@ -170,6 +171,117 @@ Github pages demo
           <video src="https://dl8.webmfiles.org/big-buck-bunny_trailer.webm"
                     controls width="390">
           </video>
+        </section>
+
+        <section class="heading-only">
+          <h2>HTTP</h2>
+        </section>
+
+        <section>
+          <h3>Loading a webpage: Part 1</h3>
+
+          <p>First, the domain is resolved over DNS:</p>
+          <img src="https://cdn.kastatic.org/ka-perseus-images/20201b554325202976575316aa128597b6862485.svg" alt="Diagram of DNS resolving" height="200">
+
+          <p>Ways to check DNS status:</p>
+          <pre style="font-size:1.0em"><code data-trim data-noescape>
+          ping cs.berkeley.edu
+          </code></pre>
+          <pre style="font-size:1.0em"><code data-trim data-noescape>
+          dig cs.berkeley.edu
+          </code></pre>
+          <p><a target="_blank" href="https://www.whatsmydns.net/#A/cs.berkeley.edu">whatsmydns.net</a></p>
+        </section>
+
+        <section>
+          <h3>Loading a webpage: Part 2</h3>
+          <p>The browser requests the webpage over HTTP:</p>
+          <img src="https://cdn.kastatic.org/ka-perseus-images/649091b0c9764066bf5f11ca2780b5a9eca6385b.svg" alt="Diagram of HTTP request" height="200">
+
+          <p>The server responds over HTTP with the HTML:</p>
+          <img src="https://cdn.kastatic.org/ka-perseus-images/fd804604f0768a7aa041bc1c928e32fb1566eac4.svg" alt="Diagram of HTTP response" height="200">
+        </section>
+
+        <section>
+          <h3>HTTP tools</h3>
+
+          <ul>
+            <li><code>curl</code> command
+            <li>Browser network tab
+            <li>Postman
+            <li>Wireshark
+          </ul>
+        </section>
+
+        <section class="heading-only">
+          <h2>Cloud computing</h2>
+        </section>
+
+        <section>
+          <h3>Cloud hosting providers</h3>
+
+          <ul>
+            <li>Amazon Web Services
+            <li>Google Cloud
+            <li>Azure
+            <li>Heroku
+            <li>...
+          </ul>
+        </section>
+
+        <section>
+          <h3>Google App Engine</h3>
+
+          <p>Let's explore it...</p>
+        </section>
+
+        <section class="heading-only">
+          <h2>Example: Khan Academy</h2>
+        </section>
+
+        <section>
+          <h3>Khan Academy Architecture</h3>
+
+          <img src="https://blog.khanacademy.org/wp-content/uploads/engblog/scaling-traffic-in-a-week.png" alt="Diagram of KA architecture" height="600">
+
+          <p><a target="_blank" href="https://blog.khanacademy.org/how-khan-academy-successfully-handled-2-5x-traffic-in-a-week/">Blog post: How Khan Academy Successfully Handled 2.5x Traffic in a Week</a></p>
+        </section>
+
+        <section>
+          <h3>Cloud = Scalability!</h3>
+
+          <figure>
+            <img src="https://cdn.kastatic.org/ka-perseus-images/d84de5030fce8657bd0c2dbd85b58badfc18295e.png" alt="Graph of server requests over a week">
+            <figcaption style="font-size:0.5em">Requests to our server from Friday, March 13 to Wednesday, March 18. Usage is always lower on Saturday and Sunday.</figcaption>
+          </figure>
+
+          <p><a target="_blank" href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:the-internet/xcae6f4a7ff015e7d:scalable-systems/a/scalable-systems">Article: Scalable systems</a></p>
+        </section>
+
+        <section>
+          <h3>Scalability++</h3>
+
+          <div style="display: flex; flex-direction: row;">
+          <figure style="flex-basis: 50%;">
+            <img src="https://cdn.kastatic.org/ka-perseus-images/2ff33005c75bd92c934b9da699ef87b64becec21.png" alt="Graph of server requests over a week" width="100%">
+            <figcaption style="font-size:0.5em">The graph shows the backlog of tasks in the assignment notification system, with time on the x-axis and number of not-yet-completed tasks on the y-axis. </figcaption>
+          </figure>
+
+          <figure class="fragment" style="flex-basis: 50%;">
+            <img src="https://cdn.kastatic.org/ka-perseus-images/990a223864db31a670048f65416baf6dc3957d28.png" alt="Graph of tasks backlog after being cleared" width="100%">
+            <figcaption style="font-size:0.5em">The effect on the backlog after capacity was increased at 9:30.</figcaption>
+          </figure>
+          </div>
+          <br>
+          <p><a target="_blank" href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:the-internet/xcae6f4a7ff015e7d:scalable-systems/a/scalable-systems">Article: Scalable systems</a></p>
+        </section>
+
+        <section>
+          <h3>Service-oriented architecture</h3>
+
+          <img src="https://lh6.googleusercontent.com/6GBj9z5WVnQnhqI19oNTRncw0LYDJM4U7FpWeGxVMaZlP46IAIcKfYZKTtHcl-bDFomedAoxSa9pFo6pdhL2daxyWNX2ZKVQIgqIIBWHxnXEouzcQhO9_mdf1tODwtti5OEOOFeb" alt="Diagram of GraphQL architecture">
+
+          <p><a href="https://blog.khanacademy.org/incremental-rewrites-with-graphql/" target="_blank">Blog post: Incremental Rewrites with GraphQL</a></p>
         </section>
 
         <section class="heading-only">
@@ -1160,117 +1272,6 @@ filter: <strong>saturate</strong>(<span id="filter-saturate-value">110</span>%);
           <a target="_blank" href="https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/">Create an image gallery with CSS grid</a><br>
           <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid/">CSS Tricks: A complete guide to Grid</a>
           </p>
-        </section>
-
-        <section class="heading-only">
-          <h2>HTTP</h2>
-        </section>
-
-        <section>
-          <h3>Loading a webpage: Part 1</h3>
-
-          <p>First, the domain is resolved over DNS:</p>
-          <img src="https://cdn.kastatic.org/ka-perseus-images/20201b554325202976575316aa128597b6862485.svg" alt="Diagram of DNS resolving" height="200">
-
-          <p>Ways to check DNS status:</p>
-          <pre style="font-size:1.0em"><code data-trim data-noescape>
-          ping cs.berkeley.edu
-          </code></pre>
-          <pre style="font-size:1.0em"><code data-trim data-noescape>
-          dig cs.berkeley.edu
-          </code></pre>
-          <p><a target="_blank" href="https://www.whatsmydns.net/#A/cs.berkeley.edu">whatsmydns.net</a></p>
-        </section>
-
-        <section>
-          <h3>Loading a webpage: Part 2</h3>
-          <p>The browser requests the webpage over HTTP:</p>
-          <img src="https://cdn.kastatic.org/ka-perseus-images/649091b0c9764066bf5f11ca2780b5a9eca6385b.svg" alt="Diagram of HTTP request" height="200">
-
-          <p>The server responds over HTTP with the HTML:</p>
-          <img src="https://cdn.kastatic.org/ka-perseus-images/fd804604f0768a7aa041bc1c928e32fb1566eac4.svg" alt="Diagram of HTTP response" height="200">
-        </section>
-
-        <section>
-          <h3>HTTP tools</h3>
-
-          <ul>
-            <li><code>curl</code> command
-            <li>Browser network tab
-            <li>Postman
-            <li>Wireshark
-          </ul>
-        </section>
-
-        <section class="heading-only">
-          <h2>Cloud computing</h2>
-        </section>
-
-        <section>
-          <h3>Cloud hosting providers</h3>
-
-          <ul>
-            <li>Amazon Web Services
-            <li>Google Cloud
-            <li>Azure
-            <li>Heroku
-            <li>...
-          </ul>
-        </section>
-
-        <section>
-          <h3>Google App Engine</h3>
-
-          <p>Let's explore it...</p>
-        </section>
-
-        <section class="heading-only">
-          <h2>Example: Khan Academy</h2>
-        </section>
-
-        <section>
-          <h3>Khan Academy Architecture</h3>
-
-          <img src="https://blog.khanacademy.org/wp-content/uploads/engblog/scaling-traffic-in-a-week.png" alt="Diagram of KA architecture" height="600">
-
-          <p><a target="_blank" href="https://blog.khanacademy.org/how-khan-academy-successfully-handled-2-5x-traffic-in-a-week/">Blog post: How Khan Academy Successfully Handled 2.5x Traffic in a Week</a></p>
-        </section>
-
-        <section>
-          <h3>Cloud = Scalability!</h3>
-
-          <figure>
-            <img src="https://cdn.kastatic.org/ka-perseus-images/d84de5030fce8657bd0c2dbd85b58badfc18295e.png" alt="Graph of server requests over a week">
-            <figcaption style="font-size:0.5em">Requests to our server from Friday, March 13 to Wednesday, March 18. Usage is always lower on Saturday and Sunday.</figcaption>
-          </figure>
-
-          <p><a target="_blank" href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:the-internet/xcae6f4a7ff015e7d:scalable-systems/a/scalable-systems">Article: Scalable systems</a></p>
-        </section>
-
-        <section>
-          <h3>Scalability++</h3>
-
-          <div style="display: flex; flex-direction: row;">
-          <figure style="flex-basis: 50%;">
-            <img src="https://cdn.kastatic.org/ka-perseus-images/2ff33005c75bd92c934b9da699ef87b64becec21.png" alt="Graph of server requests over a week" width="100%">
-            <figcaption style="font-size:0.5em">The graph shows the backlog of tasks in the assignment notification system, with time on the x-axis and number of not-yet-completed tasks on the y-axis. </figcaption>
-          </figure>
-
-          <figure class="fragment" style="flex-basis: 50%;">
-            <img src="https://cdn.kastatic.org/ka-perseus-images/990a223864db31a670048f65416baf6dc3957d28.png" alt="Graph of tasks backlog after being cleared" width="100%">
-            <figcaption style="font-size:0.5em">The effect on the backlog after capacity was increased at 9:30.</figcaption>
-          </figure>
-          </div>
-          <br>
-          <p><a target="_blank" href="https://www.khanacademy.org/computing/computers-and-internet/xcae6f4a7ff015e7d:the-internet/xcae6f4a7ff015e7d:scalable-systems/a/scalable-systems">Article: Scalable systems</a></p>
-        </section>
-
-        <section>
-          <h3>Service-oriented architecture</h3>
-
-          <img src="https://lh6.googleusercontent.com/6GBj9z5WVnQnhqI19oNTRncw0LYDJM4U7FpWeGxVMaZlP46IAIcKfYZKTtHcl-bDFomedAoxSa9pFo6pdhL2daxyWNX2ZKVQIgqIIBWHxnXEouzcQhO9_mdf1tODwtti5OEOOFeb" alt="Diagram of GraphQL architecture">
-
-          <p><a href="https://blog.khanacademy.org/incremental-rewrites-with-graphql/" target="_blank">Blog post: Incremental Rewrites with GraphQL</a></p>
         </section>
 
 </div>
