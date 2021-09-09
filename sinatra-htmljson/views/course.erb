@@ -1,0 +1,24 @@
+<div id="course-info"></div>
+
+<script>
+const courseName = window.location.pathname.split('/')[2]
+fetch(`/internal/api/course/${courseName}`)
+  .then(response => response.json())
+  .then(data => {
+  
+    const courseDiv = document.getElementById("course-info");
+
+    const h2 = document.createElement("h2");
+    h2.innerText = data.name;
+    courseDiv.appendChild(h2);
+
+    const topicsList = document.createElement("ul");
+    data.topics.forEach(topic => {
+      const topicItem = document.createElement("li");
+      topicItem.innerText = topic;
+      topicsList.appendChild(topicItem);  
+    });
+    courseDiv.appendChild(topicsList);
+  });
+
+</script>
